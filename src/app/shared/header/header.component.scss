@@ -9,6 +9,8 @@ header {
     height: 65px;
     background-color: $darkBlue;
     margin: 0;
+    font-size: 16px;
+    border-bottom: 2px solid $lightGreen;
 
     &-logo {
       display: block;
@@ -25,6 +27,12 @@ header {
       li {
         display: inline;
         margin-right: 20px;
+      };
+      a {
+        color: $lightGreen;
+      };
+      a:hover {
+        color: $white;
       }
     }
   }
