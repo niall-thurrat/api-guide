@@ -14,7 +14,7 @@ const routes: Routes = [
     component: ApisComponent
   },
   {
-    path: 'api',
+    path: 'api/:API',
     component: ApiComponent
   },
   {

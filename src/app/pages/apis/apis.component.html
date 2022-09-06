@@ -26,7 +26,7 @@
           {{rowData[col.field]}}
         </div>
         <ng-template #hyperlink>
-          <a routerLink="/api">
+          <a [routerLink]="'/api/' + rowData.API">
             {{rowData[col.field]}}
           </a>
         </ng-template>
