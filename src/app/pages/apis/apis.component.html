@@ -1,11 +1,21 @@
-<p-table [columns]="cols" [value]="apis" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll" 
-  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+<p-table #dt1 [columns]="cols" [value]="apis" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll" 
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
+  [globalFilterFields]="['API','Description','Category','Auth','HTTPS','Cors','Category']">
+  <ng-template pTemplate="caption">
+    <div class="flex">
+        <span class="p-input-icon-left ml-auto">
+          <!-- TODO> Get icon to work with placeholder text <i class="pi pi-search"> </i> -->
+          <input type="text" pInputText size="50" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+            placeholder="Search" />
+          </span>
+    </div>
+</ng-template>
   <ng-template pTemplate="header" let-columns>
       <tr>
-          <th *ngFor="let col of columns" pSortableColumn={{col.header}}>
-              {{col.header}}
-              <p-sortIcon field={{col.field}}></p-sortIcon>
-          </th>
+        <th *ngFor="let col of columns" pSortableColumn={{col.header}}>
+            {{col.header}}
+            <p-sortIcon field={{col.field}}></p-sortIcon>
+        </th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-rowData let-columns="columns">
