@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ApisComponent } from './pages/apis/apis.component';
+import { ApiComponent } from './pages/api/api.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'apis',
     component: ApisComponent
+  },
+  {
+    path: 'api',
+    component: ApiComponent
   },
   {
     path: '**',
