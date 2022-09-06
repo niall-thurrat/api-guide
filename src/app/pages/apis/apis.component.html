@@ -12,7 +12,7 @@
 </ng-template>
   <ng-template pTemplate="header" let-columns>
       <tr>
-        <th *ngFor="let col of columns" pSortableColumn={{col.header}}>
+        <th *ngFor="let col of columns" pSortableColumn={{col.header}} [style]="{'min-width':'190px'}">
             {{col.header}}
             <p-sortIcon field={{col.field}}></p-sortIcon>
             <p-columnFilter type="text" field={{col.field}} display="menu"></p-columnFilter>
