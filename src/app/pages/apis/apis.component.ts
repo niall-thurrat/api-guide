@@ -21,7 +21,7 @@ export class ApisComponent implements OnInit {
     });
   }
 
-  getCols(entry: Api): Column[] {
+  private getCols(entry: Api): Column[] {
     const keys: string[] = Object.keys(entry);
     const cols: Column[] = [];
 
@@ -32,7 +32,7 @@ export class ApisComponent implements OnInit {
     return cols;
   }
 
-  createColumn(field: string, header: string): Column {
+  private createColumn(field: string, header: string): Column {
     return { 
       field: field,
       header: header
