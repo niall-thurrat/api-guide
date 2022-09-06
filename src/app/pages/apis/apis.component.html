@@ -4,7 +4,7 @@
   <ng-template pTemplate="caption">
     <div class="flex">
         <span class="p-input-icon-left ml-auto">
-          <!-- TODO> Get icon to work with placeholder text <i class="pi pi-search"> </i> -->
+          <!-- <i class="pi pi-search"> TODO: Get icon to sit left of placeholder text </i> -->
           <input type="text" pInputText size="50" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
             placeholder="Search" />
           </span>
@@ -15,6 +15,7 @@
         <th *ngFor="let col of columns" pSortableColumn={{col.header}}>
             {{col.header}}
             <p-sortIcon field={{col.field}}></p-sortIcon>
+            <p-columnFilter type="text" field={{col.field}} display="menu"></p-columnFilter>
         </th>
       </tr>
   </ng-template>
