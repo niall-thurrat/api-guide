@@ -9,22 +9,28 @@ import { of } from 'rxjs';
   providedIn: 'root'
 })
 export class ApisService {
+  baseUrl: string = 'https://api.publicapis.org';
+
   constructor(private http: HttpClient) {}
 
   getApis() {
-    return this.http.get<ApisDto>('https://api.publicapis.org/entries');
+    return this.http.get<ApisDto>(`${this.baseUrl}/entries`);
   }
 
   // TODO: use an ID instead of 'API' for requesting a single API from backend. 'Title' is not a unique value
   getApi(API: string) {
-    return this.http.get<ApisDto>('https://api.publicapis.org/entries?title=' + API).pipe(
+    return this.http.get<ApisDto>(`${this.baseUrl}/entries?title=${API}`).pipe(
       switchMap((res) => {
         return of(res.entries.slice(0, 1)[0]);
       })
     );
   }
 
-  updateApi(api: Api | null) {
-    this.http.post('https://api.publicapis.org/entries', api);
+  updateApi(api: Api) {
+    this.http.post(`${this.baseUrl}/entries/${api.API}`, api);
+  }
+
+  deleteApi(id: string) {
+    this.http.delete(`${this.baseUrl}/entries/${id}`);
   }
 }

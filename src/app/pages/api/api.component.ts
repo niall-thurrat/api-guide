@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Api } from '../../models/api';
 import { ApisService } from '../../services/apis.service';
 
@@ -9,9 +9,20 @@ import { ApisService } from '../../services/apis.service';
   styleUrls: ['./api.component.scss']
 })
 export class ApiComponent implements OnInit {
-  api: Api | null = null;
+  api: Api = {
+    API: '',
+    Description: '',
+    Auth: '',
+    HTTPS: false,
+    Cors: '',
+    Link: '',
+    Category: ''
+  };
 
-  constructor(private route: ActivatedRoute, private apisService: ApisService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private apisService: ApisService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(({ API }) => {
@@ -27,5 +38,10 @@ export class ApiComponent implements OnInit {
 
   updateApi(): void {
     this.apisService.updateApi(this.api)
+  }
+
+  deleteApi(): void {
+    this.apisService.deleteApi(this.api.API)
+    this.router.navigate(['/apis']);
   }
 }
