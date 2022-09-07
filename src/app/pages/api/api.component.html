@@ -1,1 +1,91 @@
-<p>api works!</p>
+<div class="container">
+  <div *ngIf="api" class="card">
+    <h3>API details: {{ api.API }}</h3>
+    <form>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">API name</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="API"
+          [(ngModel)]="api.API"
+          name="API"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">Description</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="Description"
+          [(ngModel)]="api.Description"
+          name="Description"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">Auth</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="Auth"
+          [(ngModel)]="api.Auth"
+          name="Auth"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">HTTPS</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="HTTPS"
+          [(ngModel)]="api.HTTPS"
+          name="HTTPS"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">Cors</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="Cors"
+          [(ngModel)]="api.Cors"
+          name="Cors"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">Link</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="Link"
+          [(ngModel)]="api.Link"
+          name="Link"
+        />
+      </div>
+      <div class="p-inputgroup input-margin">
+        <span class="p-inputgroup-addon">Category</span>
+        <input
+          pInputText
+          type="text"
+          class="form-control"
+          id="Category"
+          [(ngModel)]="api.Category"
+          name="Category"/>
+      </div>
+    </form>
+    <button
+      pButton
+      type="submit"
+      class="p-button-secondary"
+      (click)="updateApi()"
+    >
+      Update
+    </button>
+  </div>
+</div>
