@@ -4,7 +4,7 @@
   <ng-template pTemplate="caption">
     <div class="flex">
       <span class="p-input-icon-left ml-auto">
-        <!-- <i class="pi pi-search"> TODO: Get icon to sit left of placeholder text </i> -->
+        <i class="pi pi-search"></i>
         <input type="text" pInputText size="50" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
           placeholder="Search" />
       </span>
@@ -32,11 +32,5 @@
         </ng-template>
       </td>
     </tr>
-  </ng-template>
-  <ng-template pTemplate="paginatorleft">
-    <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
-  </ng-template>
-  <ng-template pTemplate="paginatorright">
-    <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
   </ng-template>
 </p-table>
