@@ -27,8 +27,7 @@
           {{rowData[col.header]}}
         </div>
         <ng-template #hyperlink>
-          <!-- TODO: hard coded to 'api' route. Fix this to get e.g. the type of table items, to add to URL string -->
-          <a [routerLink]="'/api/' + rowData[columns[0].header]">
+          <a [routerLink]="'/' + dataType + '/' + rowData[columns[0].header]">
             {{rowData[col.header]}}
           </a>
         </ng-template>

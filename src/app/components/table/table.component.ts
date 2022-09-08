@@ -9,6 +9,7 @@ import { Column } from '../../models/column';
 export class TableComponent implements OnInit {
   @Input() data!: any[];
   @Input() exclusions: string[] = [];
+  @Input() dataType!: string;
   headers!: string[];
   cols!: Column[];
 
