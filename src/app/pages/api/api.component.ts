@@ -9,15 +9,7 @@ import { ApisService } from '../../services/apis.service';
   styleUrls: ['./api.component.scss']
 })
 export class ApiComponent implements OnInit {
-  api: Api = {
-    API: '',
-    Description: '',
-    Auth: '',
-    HTTPS: false,
-    Cors: '',
-    Link: '',
-    Category: ''
-  };
+  api!: Api;
 
   constructor(
     private route: ActivatedRoute, 
