@@ -14,6 +14,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ApisComponent } from './pages/apis/apis.component';
 import { ApiComponent } from './pages/api/api.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApiComponent } from './pages/api/api.component';
     FooterComponent,
     HomeComponent,
     ApisComponent,
-    ApiComponent
+    ApiComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
