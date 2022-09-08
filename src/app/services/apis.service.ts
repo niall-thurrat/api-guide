@@ -25,9 +25,13 @@ export class ApisService {
       })
     );
   }
+  
+  addApi(api: Api) {
+    this.http.post(`${this.baseUrl}/entries/${api.API}`, api);
+  }
 
   updateApi(api: Api) {
-    this.http.post(`${this.baseUrl}/entries/${api.API}`, api);
+    this.http.put(`${this.baseUrl}/entries/${api.API}`, api);
   }
 
   deleteApi(id: string) {

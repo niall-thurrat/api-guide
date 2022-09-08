@@ -16,6 +16,7 @@ import { ApisComponent } from './pages/apis/apis.component';
 import { ApiComponent } from './pages/api/api.component';
 import { TableComponent } from './components/table/table.component';
 import { ApiFormComponent } from './components/api-form/api-form.component';
+import { AddApiComponent } from './pages/add-api/add-api.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ApiFormComponent } from './components/api-form/api-form.component';
     ApisComponent,
     ApiComponent,
     TableComponent,
-    ApiFormComponent
+    ApiFormComponent,
+    AddApiComponent
   ],
   imports: [
     BrowserModule,

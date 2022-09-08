@@ -10,10 +10,16 @@ import { ApisService } from '../../services/apis.service';
 })
 export class ApiFormComponent implements OnInit {
   @Input() api!: Api;
+  @Input() isNew!: boolean;
 
   constructor(private apisService: ApisService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  addApi(): void {
+    this.apisService.addApi(this.api)
+    this.router.navigate(['/apis']);
   }
 
   updateApi(): void {
