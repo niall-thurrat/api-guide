@@ -15,6 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ApisComponent } from './pages/apis/apis.component';
 import { ApiComponent } from './pages/api/api.component';
 import { TableComponent } from './components/table/table.component';
+import { ApiFormComponent } from './components/api-form/api-form.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TableComponent } from './components/table/table.component';
     HomeComponent,
     ApisComponent,
     ApiComponent,
-    TableComponent
+    TableComponent,
+    ApiFormComponent
   ],
   imports: [
     BrowserModule,
