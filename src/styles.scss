@@ -7,7 +7,14 @@
 @import "~primeng/resources/themes/lara-light-indigo/theme.css";
 @import "~primeng/resources/primeng.min.css";
 
+/* global styling for sticky footer*/
+html, body, app-root {
+  height: 100%;
+}
+
 body {
+  margin-bottom: 0;
+  margin-top: 0;
   font-family: "Poppins",Arial,sans-serif;
   font-size: 14px;
   color: $black;
@@ -25,4 +32,12 @@ a:hover {
 
 h1, h2, h3 {
   color: $darkBlue;
+}
+
+.content-outer-container {
+  min-height: 100%;
+}
+
+.content-inner-container {
+  padding-bottom: 65px;
 }
