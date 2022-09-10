@@ -79,21 +79,33 @@
           name="Category"/>
       </div>
     </form>
-    <button
-      pButton
-      type="submit"
-      class="p-button-info right-margin"
-      (click)="updateApi()"
-    >
-      Update
-    </button>
-    <button
-      pButton
-      type="submit"
-      class="p-button-secondary"
-      (click)="deleteApi()"
-    >
-      Delete
-    </button>
+    <div *ngIf="!isNew; else add">
+      <button
+        pButton
+        type="submit"
+        class="p-button-info right-margin"
+        (click)="updateApi()"
+      >
+        Update
+      </button>
+      <button
+        pButton
+        type="submit"
+        class="p-button-secondary"
+        (click)="deleteApi()"
+      >
+        Delete
+      </button>
+    </div>
+    <ng-template #add>
+      <button
+        pButton
+        type="submit"
+        class="p-button-info"
+        (click)="addApi()"
+      >
+        Add
+      </button>
+    </ng-template>
   </div>
 </div>
