@@ -13,7 +13,7 @@ export class ApisComponent implements OnInit {
   constructor(private apisService: ApisService) {}
 
   ngOnInit(): void {
-    this.apisService.getApis().subscribe((response) => {
+    this.apisService.getAll().subscribe((response) => {
       this.apis = response.entries;
     });
   }

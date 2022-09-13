@@ -13,12 +13,12 @@ export class ApisService {
 
   constructor(private http: HttpClient) {}
 
-  getApis() {
+  getAll() {
     return this.http.get<ApisDto>(`${this.baseUrl}/entries`);
   }
 
   // TODO: use an ID instead of 'API' for requesting a single API from backend. 'Title' is not a unique value
-  getApi(API: string) {
+  getOne(API: string) {
     return this.http.get<ApisDto>(`${this.baseUrl}/entries?title=${API}`).pipe(
       switchMap((res) => {
         return of(res.entries.slice(0, 1)[0]);
@@ -26,15 +26,15 @@ export class ApisService {
     );
   }
   
-  addApi(api: Api) {
+  add(api: Api) {
     this.http.post(`${this.baseUrl}/entries/${api.API}`, api);
   }
 
-  updateApi(api: Api) {
+  update(api: Api) {
     this.http.put(`${this.baseUrl}/entries/${api.API}`, api);
   }
 
-  deleteApi(id: string) {
+  delete(id: string) {
     this.http.delete(`${this.baseUrl}/entries/${id}`);
   }
 }

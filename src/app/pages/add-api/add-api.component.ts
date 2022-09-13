@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Api } from '../../models/api';
 
 @Component({
@@ -6,7 +6,7 @@ import { Api } from '../../models/api';
   templateUrl: './add-api.component.html',
   styleUrls: ['./add-api.component.scss']
 })
-export class AddApiComponent implements OnInit {
+export class AddApiComponent {
   newApi: Api = {
     API: '',
     Description: '',
@@ -18,8 +18,4 @@ export class AddApiComponent implements OnInit {
   };
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

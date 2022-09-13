@@ -20,7 +20,7 @@ export class ApiComponent implements OnInit {
   }
 
   getAPI(API: string) {
-    this.apisService.getApi(API).subscribe((apiData) => {
+    this.apisService.getOne(API).subscribe((apiData) => {
       this.api = apiData;
     });
   }

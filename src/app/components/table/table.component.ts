@@ -7,30 +7,28 @@ import { Column } from '../../models/column';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  @Input() data!: any[];
-  @Input() exclusions: string[] = [];
+  @Input() data!: Object[];
+  @Input() exclusions!: string[];
   @Input() dataType!: string;
   headers!: string[];
-  cols!: Column[];
-
+  columns!: Column[];
 
   constructor() { }
 
   ngOnInit(): void {
-    const item: any = this.data[0];
+    const item: Object = this.data[0];
     
     this.headers = Object.keys(item);
-    this.cols = this.getCols(this.headers);
+    this.columns = this.getColumns(this.headers);
   }
 
-  private getCols(headers: string[]): Column[] {
-    
+  private getColumns(headers: string[]): Column[] {
     const cols: Column[] = [];
 
     headers.forEach(h => {
       if (!this.exclusions.includes(h))
         cols.push(this.createColumn(h, h));
-    })
+    });
     return cols;
   }
 
@@ -40,5 +38,4 @@ export class TableComponent implements OnInit {
       header: header
     };
   }
-
 }
