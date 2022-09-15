@@ -1,3 +1,4 @@
 <ng-container *ngIf="apis">
-  <app-table [data]="apis" [exclusions]="['Link']" [dataType]="'api'"></app-table>
+  <app-table [data]="apis" [exclusions]="['Link']" [dataType]="'api'"
+    [dropdownFilters]="['Auth', 'HTTPS', 'Cors']"></app-table>
 </ng-container>

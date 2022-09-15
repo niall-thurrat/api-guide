@@ -10,16 +10,17 @@ export class TableComponent implements OnInit {
   @Input() data!: Object[];
   @Input() exclusions!: string[];
   @Input() dataType!: string;
+  @Input() dropdownFilters!: string[];
   headers!: string[];
   columns!: Column[];
+  filterOptions!: string[][];
 
   constructor() { }
 
   ngOnInit(): void {
-    const item: Object = this.data[0];
-    
-    this.headers = Object.keys(item);
+    this.headers = Object.keys(this.data[0]);
     this.columns = this.getColumns(this.headers);
+    this.filterOptions = this.getFilterOptions(this.data);
   }
 
   private getColumns(headers: string[]): Column[] {
@@ -37,5 +38,24 @@ export class TableComponent implements OnInit {
       field: field,
       header: header
     };
+  }
+
+  private getFilterOptions(data: Object[]): string[][] {
+    const tableOptions: string[][] = [];
+
+    data.forEach(item => {
+      const itemKeys: string[] = Object.keys(item);
+      const itemValues: any[] = Object.values(item);
+
+      itemKeys.forEach(key => { tableOptions.push([]); });
+
+      for (let i = 0; i < itemKeys.length; i++) {
+        if (this.dropdownFilters.includes(itemKeys[i]) && 
+        !tableOptions[i].includes(itemValues[i])) {
+          tableOptions[i].push(itemValues[i]);
+        }
+      }
+    });
+    return tableOptions;
   }
 }

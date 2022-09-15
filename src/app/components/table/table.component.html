@@ -1,6 +1,6 @@
-<p-table #dt1 [columns]="columns" [value]="data" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll" 
-  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]"
-  [globalFilterFields]="headers">
+<p-table #dt1 [columns]="columns" [value]="data" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" 
+  responsiveLayout="scroll" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" 
+  [rowsPerPageOptions]="[10,25,50]" [globalFilterFields]="headers">
   <ng-template pTemplate="caption">
     <div class="flex">
       <span class="p-input-icon-left ml-auto">
@@ -15,7 +15,22 @@
       <th *ngFor="let col of columns" pSortableColumn={{col.header}} [style]="{'min-width':'190px'}">
         {{col.header}}
         <p-sortIcon field={{col.field}}></p-sortIcon>
-        <p-columnFilter type="text" field={{col.field}} display="menu"></p-columnFilter>
+      </th>
+    </tr>
+    <tr>
+      <th *ngFor="let col of columns;index as i">
+        <div *ngIf="dropdownFilters.includes(col.header); else noDropdown">
+          <p-columnFilter field={{col.field}} matchMode="equals" [showMenu]="false">
+            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+              <p-dropdown [ngModel]="value" [options]="filterOptions[i]"
+                (onChange)="filter($event.value)" placeholder="Any">
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </div>
+        <ng-template #noDropdown>
+          <p-columnFilter type="text" field={{col.field}}></p-columnFilter>
+        </ng-template>
       </th>
     </tr>
   </ng-template>
@@ -34,4 +49,9 @@
       </td>
     </tr>
   </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+        <td colspan="5">No {{dataType}}s found.</td>
+    </tr>
+</ng-template>
 </p-table>
